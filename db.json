@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "image": "1.webp",
+      "name": "Bitcoin",
+      "price": 100,
+      "availble": true,
+      "article": "T1",
+      "quantity": 0
+    },
+    {
+      "image": "2.webp",
+      "name": "Ethereum",
+      "price": 120,
+      "availble": true,
+      "article": "T2",
+      "quantity": 0
+    },
+    {
+      "image": "3.webp",
+      "name": "Tether",
+      "price": 130,
+      "availble": true,
+      "article": "T3",
+      "quantity": 0
+    },
+    {
+      "image": "4.webp",
+      "name": "USD Coin",
+      "price": 100,
+      "availble": true,
+      "article": "T4",
+      "quantity": 0
+    },
+    {
+      "image": "5.png",
+      "name": "BNB",
+      "price": 120,
+      "availble": true,
+      "article": "T5",
+      "quantity": 0
+    },
+    {
+      "image": "6.webp",
+      "name": "XRP",
+      "price": 130,
+      "availble": true,
+      "article": "T6",
+      "quantity": 0
+    }
+  ]
+}
