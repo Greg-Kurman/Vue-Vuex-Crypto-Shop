@@ -1,12 +1,16 @@
 <template>
-    <h1>Catalog</h1>
+      <h2>Каталог</h2>
+    <div class="go_to_cart">
+      
+        <router-link :to="{ name: 'Cart' }">
+            <h3>Карзина: {{ CART.length }}</h3>
+        </router-link>
+
+    </div>
     <div class="v-catalog">
-        <vCatalogItem
-         v-for="product in PRODUCTS" 
-         :key="product.article" 
-         v-bind:product_data="product"
-         @addToCart="addToCart" 
-          />
+
+        <vCatalogItem v-for="product in PRODUCTS" :key="product.article" :product_data="product"
+            @addToCart="addToCart" />
     </div>
 </template>
 
@@ -28,7 +32,8 @@ export default {
     },
     computed: {
         ...mapGetters([
-            "PRODUCTS"
+            'PRODUCTS',
+            'CART'
         ]),
     },
     methods: {
@@ -53,5 +58,14 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+}
+
+.go_to_cart {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    box-shadow: 0 0 8px 0 #e0e0e0;
+    padding: 8px;
+    margin-bottom: 8px;
 }
 </style>

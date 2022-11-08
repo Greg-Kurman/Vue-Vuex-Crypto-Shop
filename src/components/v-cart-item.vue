@@ -3,17 +3,19 @@
         <img class="v-cart-item__image" :src="require('../assets/images/' + cart_item_data.image)" alt="">
         <div class="v-cart-item__info">
             <p>{{cart_item_data.name}}</p>
-            <p>Price:{{cart_item_data.price}}$</p>
-            <p>Article:{{cart_item_data.article}}</p>
+            <p>Цена:{{cart_item_data.price}}$</p>
+            <p>Артикль:{{cart_item_data.article}}</p>
         </div>
-        <p>Quantity:</p>
-        <div class="v-cart-item__quantity">{{cart_item_data.quantity}}</div>
-        <button @click="deleteFromCart">Delete</button>
+        <p>Количество:</p>
+        <div class="v-cart-item__quantity"><button @click="decrement" style="background-color:darkred">-</button>  {{cart_item_data.quantity}}  <button @click="increment">+</button></div>
+        <button @click="deleteFromCart">Удалить</button>
     </div>
 
 </template>
 
 <script>
+ 
+
 export default {
     name: 'v-cart-item',
     props: {
@@ -31,6 +33,12 @@ export default {
     methods: {
         deleteFromCart(){
             this.$emit('deleteFromCart', )
+        },
+        increment(){
+            this.$emit('increment')
+        },
+        decrement(){
+            this.$emit('decrement')
         }
     },
     mounted() {
@@ -42,7 +50,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style  >
 
 .v-cart-item {
     display: flex;

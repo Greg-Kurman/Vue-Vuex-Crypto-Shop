@@ -1,18 +1,17 @@
 <template>
   <div>
-    <vMainWrapper /> 
-     
-    cds
+    <vMain/>
+
   </div>
 </template>
 
 <script>
-import vMainWrapper from './components/v-main-wrapper.vue'
+import vMain from './components/v-main-wrapper.vue'
 
 export default {
   name: 'App',
   components: {
-    vMainWrapper
+    vMain
   }
 }
 </script>
@@ -24,6 +23,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+   
+}
+
+button {
+  border: 0;
+ padding: 5px 5px;
+ background-color: rgb(24, 129, 24);
+ color: azure;
+ border-radius: 2px;
 }
 </style>
