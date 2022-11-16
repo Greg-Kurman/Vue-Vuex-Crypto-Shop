@@ -15,7 +15,6 @@
 
 <script>
  
-
 export default {
     name: 'v-cart-item',
     props: {
@@ -49,7 +48,6 @@ export default {
 
 </script>
 
-
 <style  >
 
 .v-cart-item {
@@ -62,4 +60,6 @@ export default {
     margin-bottom: 8px;
 
 }
+
+
 </style>

@@ -1,27 +1,26 @@
 <template>
     <div class="v-cart">
-        <h1>Карзина</h1>
+        <h1>Корзина</h1>
         <div class="go_to_cart">
             <router-link to="/">
-                <h3>Каталог</h3>
+              <button><h3>Каталог</h3></button>  
             </router-link>
         </div>
         <h3 v-if="!CART.length">Добавьте криптовалюту из каталога</h3>
-
-        <v-cart-item v-for="(item, index) in CART" :key="item.article" :cart_item_data="item"
+        <v-cart-item v-for="(item, index) in CART" 
+            :key="item.article" :cart_item_data="item"
             @deleteFromCart="deleteFromCart(index)"
             @increment="increment(index)"
             @decrement="decrement(index)"
              />
-
         <div class="v-cart__total">
             <div>Total: {{ totalCost }} $ </div>
-
         </div>
     </div>
 </template>
 
 <script>
+
 import vCartItem from './v-cart-item.vue'
 import { mapActions } from 'vuex'
 import { mapGetters } from 'vuex'
@@ -82,7 +81,6 @@ export default {
     }
 }
 </script>
-
 
 <style>
 .v-cart {

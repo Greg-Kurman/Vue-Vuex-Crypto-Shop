@@ -3,50 +3,57 @@
     {
       "image": "1.webp",
       "name": "Bitcoin",
-      "price": 100,
+      "price": 973,
       "availble": true,
       "article": "T1",
-      "quantity": 0
+      "quantity": 0,
+      "popular": true
     },
     {
       "image": "2.webp",
       "name": "Ethereum",
-      "price": 120,
+      "price": 452,
       "availble": true,
       "article": "T2",
-      "quantity": 0
+      "quantity": 0,
+      "popular": true
     },
     {
       "image": "3.webp",
       "name": "Tether",
-      "price": 130,
+      "price": 312,
       "availble": true,
       "article": "T3",
-      "quantity": 0
+      "quantity": 0,
+      "popular": false
     },
     {
       "image": "4.webp",
       "name": "USD Coin",
-      "price": 100,
+      "price": 70,
       "availble": true,
       "article": "T4",
-      "quantity": 0
+      "quantity": 0,
+      "popular": false
     },
     {
       "image": "5.png",
       "name": "BNB",
-      "price": 120,
+      "price": 12,
       "availble": true,
       "article": "T5",
-      "quantity": 0
+      "quantity": 0,
+      "popular": false
     },
     {
       "image": "6.webp",
       "name": "XRP",
-      "price": 130,
+      "price": 0.5,
       "availble": true,
       "article": "T6",
-      "quantity": 0
+      "quantity": 0,
+      "popular": false
     }
+    
   ]
 }
