@@ -3,6 +3,9 @@ export default {
         SET_PRODUCTS_TO_STATE: (state, products) => {
             state.products = products
         },
+        SET_VALUTE_TO_STATE: (state, valute) => {
+            state.valute = valute
+        },
         SET_CART: (state, product) => {
             if (state.cart.length) {
                 let isProductExists = false

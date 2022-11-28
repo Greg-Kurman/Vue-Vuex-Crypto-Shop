@@ -5,6 +5,10 @@ export default {
         },
         CART(state) {
             return state.cart
+        },
+
+        VALUTE(state){
+            return state.valute
         }
     
 }

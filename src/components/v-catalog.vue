@@ -8,11 +8,20 @@
             </router-link>
         </div>
         <div class="range-slider">
-            <input type="range" min="0" max="1000" step="10" v-model.number="minPrice" @change="setRangeSlide">
-            Мин цена: {{ minPrice }}$
-            <input type="range" min="0" max="1000" step="10" v-model.number="maxPrice" @change="setRangeSlide">
-            Макс цена: {{ maxPrice }}$
+            <div>
+                <input type="range" min="0" max="1000" step="10" v-model.number="minPrice" @change="setRangeSlide">
+                Мин цена: {{ minPrice }}$
+                <input type="range" min="0" max="1000" step="10" v-model.number="maxPrice" @change="setRangeSlide">
+                Макс цена: {{ maxPrice }}$
+            </div>
+           
         </div>
+        <div class="valuta">
+                {{ date }}
+                <div id="USD">Доллар США $ — {{ usd }} руб.</div>
+                <div id="EUR">Евро € — {{ eur }} руб.</div>
+            </div>
+
         <div class="v-catalog">
             <v-catalog-item v-for="product in sortedProducts" :key="product.article" :product_data="product"
                 @addToCart="addToCart" />
@@ -36,19 +45,24 @@ export default {
         return {
             minPrice: 0,
             maxPrice: 1000,
-            sortedProducts: []
+            sortedProducts: [],
+            usd: 0,
+            eur: 0,
+            date: 0,
         }
 
     },
     computed: {
         ...mapGetters([
             'PRODUCTS',
+            'VALUTE',
             'CART'
         ]),
     },
     methods: {
         ...mapActions([
             'GET_PRODUCTS_FROM_API',
+            'GET_VALUTE_FROM_API',
             'ADD_TO_CART'
         ]),
         addToCart(data) {
@@ -68,6 +82,13 @@ export default {
             this.sortedProducts = this.sortedProducts.filter(function (item) {
                 return item.price >= vm.minPrice && item.price <= vm.maxPrice
             })
+        },
+
+        showValute(data) {
+            console.log(data.Valute.USD.Value)
+            this.date = data.Date
+            this.usd = data.Valute.USD.Value.toFixed(2)
+            this.eur = data.Valute.EUR.Value.toFixed(2)
         }
     },
     mounted() {
@@ -76,11 +97,19 @@ export default {
                 if (response.data) {
                     this.sortByCategories()
                 }
-            })
+            }),
 
+            this.GET_VALUTE_FROM_API()
+                .then((response) => {
+                    if (response.data) {
+                        this.showValute(response.data)
+                    }
+                })
     }
 
 }
+
+
 </script>
 
 <style>
@@ -91,23 +120,25 @@ export default {
     justify-content: center;
 
 }
+
 .wrapper_catalog {
-    -webkit-transform: translate(0,0);
-  transform: translate(0,0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
 }
-.fixed_btn{
+
+.fixed_btn {
     position: -webkit-sticky;
-  position: sticky;
-  top: 20px;
-  
+    position: sticky;
+    top: 20px;
+
     background-color: #00AA00;
     z-index: 999;
 }
 
 .go_to_cart {
     position: -webkit-sticky;
-  position: sticky;
-  top: 20px;
+    position: sticky;
+    top: 20px;
     box-shadow: 0 0 8px 0 #e0e0e0;
     padding: 5px;
     margin-bottom: 8px;
@@ -117,6 +148,13 @@ export default {
     display: flex;
     flex-direction: column;
     width: 20%;
+}
+
+.valuta {
+    max-width: 30%;
+    position: absolute;
+    top: 0;
+    left: 40%;
 }
 
 
