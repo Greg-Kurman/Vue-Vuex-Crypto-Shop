@@ -9,9 +9,11 @@
         </div>
         <div class="range-slider">
             <div>
-                <input type="range" min="0" max="1000" step="10" v-model.number="minPrice" @change="setRangeSlide">
+                <input type="range" min="0" max="1000" step="10" v-model.number="minPrice" @change="setRangeSlide" >
+                <input type="text" min="0" max="1000"  v-model.number="minPrice" @change="setRangeSlide">
                 Мин цена: {{ minPrice }}$
                 <input type="range" min="0" max="1000" step="10" v-model.number="maxPrice" @change="setRangeSlide">
+                <input type="text" min="0" max="1000"   v-model.number="maxPrice" @change="setRangeSlide">
                 Макс цена: {{ maxPrice }}$
             </div>
            
